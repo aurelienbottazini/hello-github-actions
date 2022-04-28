@@ -10,6 +10,6 @@ jobs:
         if: github.ref == 'refs/heads/main'
         run: |
           echo "Can not pre-release from master"
-    steps:
+
       - uses: actions/checkout@v1
         if: github.ref != 'refs/heads/main'
