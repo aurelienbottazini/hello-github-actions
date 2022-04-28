@@ -5,9 +5,9 @@ jobs:
     name: pre-release action
     runs-on: ubuntu-latest
     steps:
+      if: github.ref == 'refs/heads/main'
       - name: Cancelled
-        if: github.ref == 'refs/heads/main'
         run: |
           echo "Can not pre-release from master"
+      if: github.ref != 'refs/heads/main'
       - uses: actions/checkout@v1
-        if: github.ref != 'refs/heads/main'
