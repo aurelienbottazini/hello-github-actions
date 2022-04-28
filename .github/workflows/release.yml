@@ -3,13 +3,17 @@ on:
   workflow_dispatch:
     inputs:
       version_bump:
-        description: 'version_bump'
+        description: 'version bump'
         required: true
         default: 'warning'
         type: choice
         options:
         - minor
         - major
+      changelog:
+        description: 'changelog'
+        required: true
+        type: string
 
 jobs:
   build:
