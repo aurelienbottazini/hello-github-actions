@@ -1,5 +1,8 @@
-name: A workflow for my Hello World file
-on: workflow_dispatch
+name: pre-release
+on:
+  workflow_dispatch:
+    branches-ignore:
+        - master
 jobs:
   build:
     name: Hello world action
