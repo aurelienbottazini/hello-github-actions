@@ -1,12 +1,15 @@
 name: pre-release
-on:
-  workflow_dispatch:
-    branches-ignore:
-        - master
+on: workflow_dispatch
 jobs:
   build:
-    name: Hello world action
+    name: pre-release action
     runs-on: ubuntu-latest
+    if: ${{ github.ref == 'refs/heads/main' }}
+    steps:
+      - name: Cancelled
+        run: |
+          echo "Can not pre-release from master"
+    if: ${{ github.ref != 'refs/heads/main' }}
     steps:
       - uses: actions/checkout@v1
       - uses: ./action-a
