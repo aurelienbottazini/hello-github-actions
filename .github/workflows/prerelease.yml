@@ -1,5 +1,6 @@
 name: pre-release
 on: workflow_dispatch
+
 jobs:
   build:
     name: pre-release action
@@ -10,5 +11,5 @@ jobs:
         run: |
           echo "Can not pre-release from master"
     steps:
-        if: github.ref != 'refs/heads/main'
       - uses: actions/checkout@v1
+        if: github.ref != 'refs/heads/main'
