@@ -1,5 +1,15 @@
 name: pre-release
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+    inputs:
+      version_bump:
+        description: 'version_bump'
+        required: true
+        default: 'warning'
+        type: choice
+        options:
+        - minor
+        - major
 
 jobs:
   build:
