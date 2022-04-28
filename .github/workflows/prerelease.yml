@@ -9,9 +9,9 @@ jobs:
       - name: Cancelled
         run: |
           echo "Can not pre-release from master"
-    if: ${{ github.ref != 'refs/heads/main' }}
+    if: !${{ github.ref == 'refs/heads/main' }}
     steps:
       - uses: actions/checkout@v1
-      - uses: ./action-a
-        with:
-          MY_NAME: "Mona"
+      - name: Done
+        run: |
+          echo "Done"
