@@ -21,7 +21,7 @@ jobs:
         run: |
           echo "Can release only from master"
 
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v3
         if: github.ref == 'refs/heads/main'
       - run: |
           date > generated.txt
