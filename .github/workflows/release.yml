@@ -52,6 +52,8 @@ jobs:
           yarn standard-version --skip.changelog
           git push
           git push origin --tags
-      - name: username
+      - name: Create Release
         run: |
-          echo ${{ github.actor }}
+          gh release create "$(cat .version)" --notes "${{ github.event.inputs.changelog1 }}\n${{ github.event.inputs.changelog2 }}\n${{ github.event.inputs.changelog3 }}"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
