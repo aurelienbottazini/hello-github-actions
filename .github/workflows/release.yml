@@ -10,9 +10,17 @@ on:
         options:
         - minor
         - major
-      changelog:
+      changelog1:
         description: 'changelog'
         required: true
+        type: string
+      changelog2:
+        description: 'changelog...'
+        required: false
+        type: string
+      changelog3:
+        description: 'changelog...'
+        required: false
         type: string
 
 jobs:
@@ -29,7 +37,7 @@ jobs:
         if: github.ref == 'refs/heads/main'
       - name: update changelog
         run: |
-          echo ${{ github.event.inputs.changelog }} > CHANGELOG.md
+          echo ${{ github.event.inputs.changelog1 }} > CHANGELOG.md
           git config user.name github-actions
           git config user.email github-actions@github.com
           git add .
