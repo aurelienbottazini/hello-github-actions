@@ -51,6 +51,7 @@ jobs:
           git commit -m "doc: update changelog"
           yarn standard-version --skip.changelog
           git push
+          git push origin --tags
       - name: username
         run: |
           echo ${{ github.actor }}
