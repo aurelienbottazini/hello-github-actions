@@ -54,8 +54,8 @@ jobs:
           git push origin --tags
       - name: Create Release
         run: |
-          echo "- ${{ github.event.inputs.changelog1 }}$(cat CHANGELOG.md)" >> LAST_RELEASE.md
-          echo "- ${{ github.event.inputs.changelog2 }}$(cat CHANGELOG.md)" >> LAST_RELEASE.md
+          echo "- ${{ github.event.inputs.changelog1 }}" >> LAST_RELEASE.md
+          echo "- ${{ github.event.inputs.changelog2 }}" >> LAST_RELEASE.md
           echo "- ${{ github.event.inputs.changelog3 }}" >> LAST_RELEASE.md
           gh release create "$(cat .version)" -F LAST_RELEASE.md
         env:
