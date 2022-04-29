@@ -33,13 +33,12 @@ jobs:
         if: github.ref != 'refs/heads/main'
         run: |
           echo "Can release only from master"
-
+      - uses: actions/checkout@v3
+        if: github.ref == 'refs/heads/main'
       - uses: actions/setup-node@v3
         with:
           node-version: 16
       - run: yarn install
-      - uses: actions/checkout@v3
-        if: github.ref == 'refs/heads/main'
       - name: Release commit
         run: |
           echo "# $(cat .version)" >> CHANGELOG.md
