@@ -43,9 +43,9 @@ jobs:
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
-          echo -e "${{ github.event.inputs.changelog3 }}\n$(cat CHANGELOG.md)" > CHANGELOG.md
-          echo "${{ github.event.inputs.changelog2 }}$(cat CHANGELOG.md)" > CHANGELOG.md
-          echo -e "\n${{ github.event.inputs.changelog1 }}$(cat CHANGELOG.md)" > CHANGELOG.md
+          echo -e "\n- ${{ github.event.inputs.changelog3 }}\n\n$(cat CHANGELOG.md)" > CHANGELOG.md
+          echo -e "\n- ${{ github.event.inputs.changelog2 }}$(cat CHANGELOG.md)" > CHANGELOG.md
+          echo -e "\n- ${{ github.event.inputs.changelog1 }}$(cat CHANGELOG.md)" > CHANGELOG.md
           echo "# $(cat .version)$(cat CHANGELOG.md)" > CHANGELOG.md
           git add .
           git commit -m "doc: update changelog"
