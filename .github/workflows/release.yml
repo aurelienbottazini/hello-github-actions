@@ -41,6 +41,8 @@ jobs:
       - run: yarn install
       - name: Release commit
         run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
           echo "# $(cat .version)" >> CHANGELOG.md
           echo ${{ github.event.inputs.changelog1 }} > CHANGELOG.md
           echo ${{ github.event.inputs.changelog2 }} > CHANGELOG.md
@@ -48,8 +50,6 @@ jobs:
           echo "\n" > CHANGELOG.md
           git add .
           git commit -m "doc: update changelog"
-          git config user.name github-actions
-          git config user.email github-actions@github.com
           yarn standard-version --skip.changelog
           git push
       - name: username
