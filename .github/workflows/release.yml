@@ -40,13 +40,16 @@ jobs:
       - run: yarn install
       - uses: actions/checkout@v3
         if: github.ref == 'refs/heads/main'
-      - name: update changelog
+      - name: Release commit
         run: |
           echo ${{ github.event.inputs.changelog1 }} > CHANGELOG.md
+          echo ${{ github.event.inputs.changelog2 }} > CHANGELOG.md
+          echo ${{ github.event.inputs.changelog3 }} > CHANGELOG.md
+          echo "\n" > CHANGELOG.md
           git config user.name github-actions
           git config user.email github-actions@github.com
           git add .
-          git commit -m "release"
+          yarn standard-version --skip.changelog
           git push
       - name: username
         run: |
