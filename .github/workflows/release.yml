@@ -46,9 +46,10 @@ jobs:
           echo ${{ github.event.inputs.changelog2 }} > CHANGELOG.md
           echo ${{ github.event.inputs.changelog3 }} > CHANGELOG.md
           echo "\n" > CHANGELOG.md
+          git add .
+          git commit "doc: update changelog"
           git config user.name github-actions
           git config user.email github-actions@github.com
-          git add .
           yarn standard-version --skip.changelog
           git push
       - name: username
