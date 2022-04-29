@@ -1,0 +1,22 @@
+{
+  "name": "hello-github-actions",
+  "version": "1.0.0",
+  "description": "### [Pre-release](https://github.com/aurelienbottazini/hello-github-actions/actions/workflows/prerelease.yml) ### [Release](https://github.com/aurelienbottazini/hello-github-actions/actions/workflows/release.yml)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aurelienbottazini/hello-github-actions.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aurelienbottazini/hello-github-actions/issues"
+  },
+  "homepage": "https://github.com/aurelienbottazini/hello-github-actions#readme",
+  "dependencies": {
+    "standard-version": "^9.3.2"
+  }
+}
