@@ -42,6 +42,7 @@ jobs:
         if: github.ref == 'refs/heads/main'
       - name: Release commit
         run: |
+          echo "# $(cat .version)" >> CHANGELOG.md
           echo ${{ github.event.inputs.changelog1 }} > CHANGELOG.md
           echo ${{ github.event.inputs.changelog2 }} > CHANGELOG.md
           echo ${{ github.event.inputs.changelog3 }} > CHANGELOG.md
