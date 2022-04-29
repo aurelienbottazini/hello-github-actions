@@ -10,6 +10,7 @@ on:
         options:
         - minor
         - major
+        - patch
       changelog1:
         description: 'changelog'
         required: true
@@ -43,3 +44,6 @@ jobs:
           git add .
           git commit -m "generated"
           git push
+      - name: username
+        run: |
+          echo ${{ github.actor }}

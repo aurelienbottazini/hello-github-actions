@@ -10,6 +10,7 @@ on:
         options:
         - minor
         - major
+        - patch
 
 jobs:
   build:
