@@ -1,6 +1,6 @@
 {
   "name": "hello-github-actions",
-  "version": "1.0.22",
+  "version": "1.0.23",
   "description": "### [Pre-release](https://github.com/aurelienbottazini/hello-github-actions/actions/workflows/prerelease.yml) ### [Release](https://github.com/aurelienbottazini/hello-github-actions/actions/workflows/release.yml)",
   "main": "index.js",
   "scripts": {
