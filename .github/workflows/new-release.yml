@@ -39,7 +39,7 @@ jobs:
           git checkout -b "github-actions-prerelease-$(grep \"version\" package.json | awk -F \" '{print $4}')"
           git add package.json
           git commit -m "Update tag for release to $(grep \"version\" package.json | awk -F \" '{print $4}')"
-          git push origin
+          git push --set-upstream origin "github-actions-prerelease-$(grep \"version\" package.json | awk -F \" '{print $4}')"
           gh pr create -t "release PR for $(grep \"version\" package.json | awk -F \" '{print $4}')" -b "UPDATE DESCRIPTION. THIS WILL BE USED AS CHANGELOG" -l release-pr
       # - name: Create Release
       #   if: github.ref == 'refs/heads/main'
