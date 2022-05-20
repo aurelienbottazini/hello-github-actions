@@ -17,3 +17,5 @@ jobs:
       - name: create release
         run: |
           gh release create "$(grep \"version\" package.json | awk -F \" '{print $4}')" -t "$(grep \"version\" package.json | awk -F \" '{print $4}')" -n ${{ github.event.pull_request.body }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
