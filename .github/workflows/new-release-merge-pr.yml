@@ -1,0 +1,30 @@
+name: new release
+
+on:
+  pull_request:
+    branches:
+      - deploy
+    types: [closed]
+    tags:
+      - release-pr
+
+env:
+  PR_NUMBER: ${{ github.event.number }}
+
+jobs:
+  build:
+    if: github.event.pull_request.merged == true
+    name: new release action
+    runs-on: ubuntu-latest
+    steps:
+      - name: hello world
+          echo "I did run"
+      - run: echo ${{ github.event.pull_request.body }}
+      - uses: actions/checkout@v3
+        if: github.ref == 'refs/heads/main'
+      - uses: actions/setup-node@v3
+        if: github.ref == 'refs/heads/main'
+        with:
+          node-version: 16
+      - run: yarn install
+        if: github.ref == 'refs/heads/main'
