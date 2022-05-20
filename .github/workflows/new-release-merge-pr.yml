@@ -5,15 +5,13 @@ on:
     branches:
       - deploy
     types: [closed]
-    tags:
-      - release-pr
 
 env:
   PR_NUMBER: ${{ github.event.number }}
 
 jobs:
   build:
-    if: github.event.pull_request.merged == true
+    if: github.event.pull_request.merged == true && contains(github.event.pull_request.labels.*.name, 'release-pr')
     name: new release action
     runs-on: ubuntu-latest
     steps:
