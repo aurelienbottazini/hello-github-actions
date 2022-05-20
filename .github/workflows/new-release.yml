@@ -41,12 +41,5 @@ jobs:
           git commit -m "Update tag for release to $(grep \"version\" package.json | awk -F \" '{print $4}')"
           git push --set-upstream origin github-actions-prerelease-1.1.0
           gh pr create -t "release PR for $(grep \"version\" package.json | awk -F \" '{print $4}')" -b "UPDATE DESCRIPTION. THIS WILL BE USED AS CHANGELOG" -l release-pr
-      # - name: Create Release
-      #   if: github.ref == 'refs/heads/main'
-      #   run: |
-      #     echo "- ${{ github.event.inputs.changelog1 }}" >> LAST_RELEASE.md
-      #     echo "- ${{ github.event.inputs.changelog2 }}" >> LAST_RELEASE.md
-      #     echo "- ${{ github.event.inputs.changelog3 }}" >> LAST_RELEASE.md
-      #     gh release create "$(cat .version)" -F LAST_RELEASE.md
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
