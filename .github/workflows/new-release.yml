@@ -35,11 +35,11 @@ jobs:
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
-          git checkout -b "github-actions-prerelease-$(grep \"version\" package.json | awk -F \" '{print $4}')"
           standard-version --skip.changelog --skip.tag --skip.commit -r ${{ github.event.inputs.version_bump }}
+          git checkout -b "github-actions-prerelease-$(grep \"version\" package.json | awk -F \" '{print $4}')"
           git add package.json
           git commit -m "Update tag for release to $(grep \"version\" package.json | awk -F \" '{print $4}')"
-          git push --set-upstream origin "github-actions-prerelease-$(grep \"version\" package.json | awk -F \" '{print $4}')"
+          git push
           gh pr create -t "release PR for $(grep \"version\" package.json | awk -F \" '{print $4}')" -b "UPDATE DESCRIPTION. THIS WILL BE USED AS CHANGELOG" -l release-pr
       # - name: Create Release
       #   if: github.ref == 'refs/heads/main'
