@@ -14,7 +14,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-        if: github.ref == 'refs/heads/main'
       - name: create release
         run: |
           gh release create "$(grep \"version\" package.json | awk -F \" '{print $4}')" -t "$(grep \"version\" package.json | awk -F \" '{print $4}')" -n ${{ github.event.pull_request.body }}
