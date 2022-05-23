@@ -1,4 +1,4 @@
-name: new release
+name: new release shared
 on:
   workflow_call:
     inputs:
