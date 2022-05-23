@@ -4,7 +4,6 @@ on:
     inputs:
       version_bump:
         description: 'version bump'
-        required: true
         default: 'minor'
         type: choice
         options:
