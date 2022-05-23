@@ -2,18 +2,17 @@ name: new release shared
 on:
   workflow_call:
     inputs:
-      INPUTS:
-        PACKAGE_NAME:
-          required: true
-          type: string
+      PACKAGE_NAME:
+        required: true
+        type: string
       VERSION_BUMP:
-        description: 'version bump'
-        default: 'minor'
-        type: choice
-        options:
-        - minor
-        - major
-        - patch
+          description: 'version bump'
+          default: 'minor'
+          type: choice
+          options:
+          - minor
+          - major
+          - patch
 
 jobs:
   build:
