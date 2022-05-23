@@ -16,4 +16,5 @@ jobs:
     uses: ./.github/workflows/new-release-shared.yml
     with:
       VERSION_BUMP: minor
+      PACKAGE_NAME: foo
     secrets: inherit
