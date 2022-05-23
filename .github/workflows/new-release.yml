@@ -12,9 +12,9 @@ on:
         - patch
 
 jobs:
-  call-workflow-passing-data:
+  create-release-pr:
     uses: ./.github/workflows/new-release-shared.yml
     with:
-      VERSION_BUMP: minor
+      VERSION_BUMP: ${{ github.event.inputs.version_bump }}
       PACKAGE_NAME: foo
     secrets: inherit
