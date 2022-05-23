@@ -8,12 +8,7 @@ on:
       VERSION_BUMP:
           description: 'version bump'
           required: true
-          default: 'minor'
-          type: choice
-          options:
-          - minor
-          - major
-          - patch
+          type: string
 
 jobs:
   build:
@@ -24,6 +19,7 @@ jobs:
         if: github.ref != 'refs/heads/main'
         run: |
           echo "Can release only from master"
+          exit 1
       - uses: actions/checkout@v3
         if: github.ref == 'refs/heads/main'
       - uses: actions/setup-node@v3
