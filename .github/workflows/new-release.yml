@@ -16,5 +16,5 @@ jobs:
   call-workflow-passing-data:
     uses: ./.github/workflows/new-release-shared.yml
     with:
-      VERSION_BUMP: {{ github.event.inputs.version_bump }}
+      VERSION_BUMP: minor
     secrets: inherit
