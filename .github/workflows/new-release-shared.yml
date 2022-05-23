@@ -7,6 +7,7 @@ on:
         type: string
       VERSION_BUMP:
           description: 'version bump'
+          required: true
           default: 'minor'
           type: choice
           options:
