@@ -38,7 +38,7 @@ jobs:
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
-          standard-version --skip.changelog --skip.tag --skip.commit -r ${{ github.event.inputs.version_bump }}
+          standard-version --skip.changelog --skip.tag --skip.commit -r ${{ inputs.version_bump }}
           git checkout -b "github-actions-prerelease-$(grep \"version\" package.json | awk -F \" '{print $4}')"
           git add package.json
           git commit -m "Update tag for release to $(grep \"version\" package.json | awk -F \" '{print $4}')"
