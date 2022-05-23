@@ -14,7 +14,7 @@ on:
 
 jobs:
   call-workflow:
-    uses: ./github/workflows/new-release-shared.yml
+    uses: ./.github/workflows/new-release-shared.yml
     with:
       VERSION_BUMP: {{ github.event.inputs.version_bump }}
     secrets: inherit
